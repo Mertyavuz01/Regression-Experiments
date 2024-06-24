@@ -36,13 +36,11 @@ library(ggplot2)
 ```
 
 
-- You should also load these packages in your Console, which you can do by sending the code to your Console by clicking on the **Run Current Chunk** icon (green arrow pointing right icon).
 
-Note that these packages are also get loaded in your R Markdown environment when you **Knit** your R Markdown document.
 
 # Real Data Example
 
-Consider the given data set below
+
 
 ```{r}
 library(ISLR2)
@@ -53,9 +51,7 @@ car_df <- Carseats
 
 ------
 
-You can view the dataset as a spreadsheet using the `View()` function.
-Note that you should _not_ put this function in your R Markdown document, but instead type it directly in the Console, as it pops open a new window.
-When you run this in the console, you will see the following **data viewer** window pop up.
+
 
 ```{r view-data, eval = FALSE}
 View(car_df)
@@ -63,7 +59,7 @@ View(car_df)
 ```
 
 
-## Exercise 1 (15 pts)
+## Exercise 1
 
 - State the dimension of the data set you have.  
 
@@ -71,9 +67,9 @@ View(car_df)
 
 - Fit a simple linear regression model to predict Sales using Price. Provide an interpretation of the coefficient in the model and write out the model explicitly.
 
-Hint: Think about the summary() function if you used lm !
 
-✏️️🧶 ✅ ⬆️ *Write your answer in your R Markdown document , knit the document, make sure that your added R code chunk works well and you did not face with any knitting problem*
+
+
 ```{r}
 library(ISLR2)
 
@@ -102,7 +98,7 @@ print(model_summary)
 ```
 
 
-## Exercise 2 (25 pts)
+## Exercise 2 
 
 - Interpret the ploting results for model diagnostics (Using the `plot` command, comment on the validity of the assumption of the model 
 
@@ -110,7 +106,6 @@ print(model_summary)
 
 - Using the fitted model, obtain $95\%$ confidence interval for the coefficient(s). 
 
-✏️️🧶 ✅ ⬆️ *Write your answer in your R Markdown document , knit the document, make sure that your added R code chunk works well and you did not face with any knitting problem*
 ```{r}
 
 model <- lm(Sales ~ ., data = car_df)
@@ -123,11 +118,11 @@ summary_model <- summary(model)
 conf_intervals <- confint(model)
 conf_intervals
 ```
-## Exercise 3 (30 pts)
+## Exercise 3 
 
 Fit a multiple regression model to predict Sales using **Price**, **Urban**, and **US**. Provide an interpretation of each coefficient in the model. Be careful-some of the variables in the model are qualitative!
 
-✏️️🧶 ✅ ⬆️ *Write your answer in your R Markdown document , knit the document, make sure that your added R code chunk works well and you did not face with any knitting problem*
+
 
 
 ### ABOUT REPRODUCIBILITY
@@ -140,9 +135,9 @@ model <- lm(Sales ~ Price + Urban + US, data = car_df)
 summary(model)
 ```
 
-WARNING: WHEN I RUN YOUR .Rmd file in my computer, in case of any necessity, I need to get the same results that you mentioned in your PDF report !
 
-## Exercise 4 (30 pts)
+
+## Exercise 4 
 
 Now consider the same process over the splited data, not the whole sample.
 
@@ -150,16 +145,12 @@ Now consider the same process over the splited data, not the whole sample.
 
 - How can you split your data into training and testing sets in R using the tidymodels package or any other alternative? Consider the 80-20 split rule for training and testing, respectively. 
 
-Hint: You can check this website for tidymodels https://rsample.tidymodels.org/reference/initial_split.html
-
-or feel free to use other options that we discussed before 
 
 - Once you have split your data, refit the previously considered simple linear or multiple linear regression models on training set only. Look at the summary of the model.  
 
 - Use the predict() function in R to generate predictions for the testing data using the regression models you fitted. Evaluate their performance on the testing data using metrics such as RMSE or R-squared?
 
 
-✏️️🧶 ✅ ⬆️ *Write your answer in your R Markdown document , knit the document, make sure that your added R code chunk works well and you did not face with any knitting problem*
 ```{r}
 
 library(rsample)
@@ -182,39 +173,6 @@ cat("RMSE:", rmse, "\n")
 rsquared <- cor(data_test$Sales, predictions)^2
 cat("R-squared:", rsquared, "\n")
 ```
-
-## Review your work
-
-After answering each of the exercise, take a moment to review your work and to check that your code is clear and understandable. A proportion of the homework assignment marks are attributable to how you present your work, both code and written. This is a good practice for getting a new habit on writing codes. 
-
-When reviewing your code, add new lines, tabs and spaces where appropriate to help aid the reader to understand what your code is doing. Even if the exercise does not explicitly ask you to write some text, it is also good practice to add a short sentence to be explicit about what is your answer to the question.
-
-
-# Submission
-
-Once you have answered all of the exercises, please make sure that you have knitted your document and got the html output correctly. 
-<!-- committed all the changes to GitHub. -->
-
-To submit your homework:
-
-1. Go to the Learn page related to HW assignment 
-
-2. Submit your `pdf` output file within the allocated submission slot
-
-3. Make sure that the knitted html document presents the anticipated output before completing your submission. After getting your html, you can simply save your file as pdf after opening it in a separate html window.
-
-**IMPORTANT**: You must only submit the knitted html - converted pdf document! If you face with any issue regarding your submission let us know asap !
-
-- If you have uploaded the wrong file or have made some changes and want to resubmit before the deadline, then return to the assignment page and submit the correct file for your assignment. 
-
-
-## How the homework graded
-
-The homework is grades out of a 100 where:
-
-* Each exercise is marked out of different portions regarding the question difficulty.
-
-* If you have any questions about the assignment, please raise your voice during online lectures and send your inquiries via email. 
 
 
 
