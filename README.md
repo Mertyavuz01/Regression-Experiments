@@ -1,13 +1,4 @@
----
-title: "HW 02 - Regression Experiments"
-subtitle: "Due: 23 May, 23:59 TR time"
-output: 
-  tufte::tufte_html:
-    css: ../hw.css
-    tufte_variant: "envisioned"
-    highlight: pygments
-link-citations: yes
----
+
 
 ```{r setup, include=FALSE}
 library(tidyverse)
@@ -18,15 +9,6 @@ library(ggplot2)
 knitr::opts_chunk$set(out.width = "100%")
 ```
 
-In this assignment, you will get to put your newly acquired skills of regression modeling simply.
-
-## Prerequisites
-
-- This assignment assumes that you have worked through all materials up to and including week 11. 
-
-- Make sure you are familiar with this content. 
-
-- In some questions, maybe, you need to search additional functionalities from tidyverse, tidymodels packages.
 
 ## Packages
 
